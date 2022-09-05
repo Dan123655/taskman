@@ -65,7 +65,7 @@ const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
         <form onSubmit={handleSumbit}>
           <div className='form-input'>
-        <AiOutlinePlusCircle className='icon-add'/>
+        <AiOutlinePlusCircle className='icon-add' onClick={handleSumbit}/>
           <input 
           placeholder='Enter a task..'
           type='text'
@@ -73,11 +73,14 @@ const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
           onChange={e => setInput(e.target.value)} />
         </div>
 
-        </form>
+        </form>{tasks.length==1?(<div className='popup-task-row'><p className='popup-textline'>double-tap to complete
+            </p></div>):<></>}
         {tasks.map(task=>(
           <div className={`${task.completed? 'completed' : 'task-row'}`} key={task.id} onDoubleClick={() => toggleComplete(task.id)}>
-            <p className='textline'>{task.text}
+          
+          <p className='textline'>{task.text}
             </p>
+            
             <AiOutlineCloseCircle className='icon-delete' onClick={()=>deleteTask(task.id)}/>
             </div>
         )).reverse()}
