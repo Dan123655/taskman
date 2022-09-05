@@ -1,23 +1,85 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from 'react'
+import {useState} from 'react'
+import {BsBook} from 'react-icons/bs'
+import {AiOutlinePlusCircle, AiOutlineCloseCircle} from 'react-icons/ai'
 function App() {
+const [tasks, setTasks] = useState([]);
+const [input, setInput] = useState('')
+
+
+
+
+
+
+const handleSumbit=(e)=>{
+  e.preventDefault()
+  const addTask = {
+    id: Math.floor(Math.random()* 10000),
+    text: input,
+    completed: false
+  }
+  setTasks([...tasks, addTask]);
+  setInput('')
+}
+
+
+
+
+
+//delete task
+const deleteTask=(id)=>{
+  let filteredTasks=[...tasks].filter((tasks)=>tasks.id !==id)
+  setTasks(filteredTasks)
+  console.log('deleted ok')
+}
+
+
+//toggle completed task
+const toggleComplete= (id)=>{
+  setTasks(tasks.map(task=>task.id===id?{...task, completed: !task.completed} : task))
+}
+
+
+const date = new Date()
+console.log(date)
+const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='container'>
+        <h1><BsBook></BsBook>  List</h1>
+
+
+      <div className='date'>
+        <p>{days[date.getDay()]},</p>
+        <p>{date.getDate()},</p>
+        <p>{months[date.getMonth()]}</p>
+        <p>{date.getFullYear()}</p>
+        </div>
+
+
+
+
+        <form onSubmit={handleSumbit}>
+          <div className='form-input'>
+        <AiOutlinePlusCircle className='icon-add'/>
+          <input 
+          placeholder='Enter a task..'
+          type='text'
+          value={input}
+          onChange={e => setInput(e.target.value)} />
+        </div>
+
+        </form>
+        {tasks.map(task=>(
+          <div key={task.id} onDoubleClick={() => toggleComplete(task.id)}>
+            <p>{task.text}<button onClick={()=>deleteTask(task.id)}><AiOutlineCloseCircle/></button></p>
+            </div>
+        ))}
+      </div>
     </div>
   );
 }
