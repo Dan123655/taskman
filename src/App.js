@@ -76,7 +76,7 @@ const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
         </form>
         {tasks.map(task=>(
           <div className={`${task.completed? 'completed' : 'task-row'}`} key={task.id} onDoubleClick={() => toggleComplete(task.id)}>
-            <p>{task.text}
+            <p className='textline'>{task.text}
             </p>
             <AiOutlineCloseCircle className='icon-delete' onClick={()=>deleteTask(task.id)}/>
             </div>

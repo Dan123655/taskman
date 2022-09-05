@@ -7,10 +7,18 @@
 
 
 .container{
-  border: 3px dotted rgb(102, 98, 98);
+  /* border: 3px dotted rgb(102, 98, 98); */
   margin: auto;
   width: 90%;
   text-align: center;
+}
+@media (min-width: 800px){
+  .container{
+    /* border: 3px dotted rgb(102, 98, 98); */
+    margin: auto;
+    width: 60%;
+    text-align: center;
+  }
 }
 
 .container .date {
@@ -101,3 +109,4 @@ color: gray;}
   color: gray;
   margin: 1rem 0;
 }
+.textline{margin-left: 1rem;}
