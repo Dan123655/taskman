@@ -49,7 +49,7 @@ const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
   return (
     <div className="App">
-      <div className='container'>
+      <div className>
         <h1><BsBook></BsBook>  List</h1>
 
 
@@ -75,11 +75,14 @@ const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
         </form>
         {tasks.map(task=>(
-          <div key={task.id} onDoubleClick={() => toggleComplete(task.id)}>
-            <p>{task.text}<button onClick={()=>deleteTask(task.id)}><AiOutlineCloseCircle/></button></p>
+          <div className={`${task.completed? 'completed' : 'task-row'}`} key={task.id} onDoubleClick={() => toggleComplete(task.id)}>
+            <p>{task.text}
+            </p>
+            <AiOutlineCloseCircle className='icon-delete' onClick={()=>deleteTask(task.id)}/>
             </div>
         ))}
       </div>
+      <p className='length'>{(tasks<1 ? 'You have no tasks' : `Tasks: ${tasks.length}`)}</p>
     </div>
   );
 }

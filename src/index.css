@@ -1,12 +1,15 @@
 *{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  user-select: none
+
 }
 
 
 
 .container{
+  border: 5px dotted rgb(102, 98, 98);
   margin: auto;
-  width: 60%;
+  width: 90%;
   text-align: center;
 }
 
@@ -16,6 +19,7 @@
 
 }
 .container .date p{
+
   padding: 0 0.2em;
 }
 
@@ -36,12 +40,54 @@ display: flex;
 justify-content: center;
 align-items: center;}
 .container form input {
-  border: 2px soild #eee;
+  border-bottom: 2px solid #eee;
+
   padding: 5px 10px 5px 50px;
   font-size: 1.2rem;
   line-height: 2rem;
   outline: 0;
   display: block;
   width: 100%;
-  border-radius: 8;
+  border-radius: 8px;
+}
+.container .task-row{
+  background-color: whitesmoke;
+  margin-top: 0.5rem;
+  padding: 0px;
+  font-size: 1.2rem;
+  line-height: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  justify-content: space-between;
+  
+}
+.container .task-row .icon-delete,
+.completed .icon-delete{
+  font-size: 2rem;
+}
+.container .task-row p,
+.completed p{
+  text-transform: capitalize;
+}
+
+
+
+.completed{
+  background-color: rgb(216, 243, 177);
+  text-decoration: line-through;
+  margin-top: 0.5rem;
+  padding: 0px;
+  font-size: 1.2rem;
+  line-height: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  justify-content: space-between;
+}
+.container .length{
+  color: gray;
+  margin: 1rem 0;
 }
