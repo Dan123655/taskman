@@ -80,7 +80,7 @@ const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
             </p>
             <AiOutlineCloseCircle className='icon-delete' onClick={()=>deleteTask(task.id)}/>
             </div>
-        ))}
+        )).reverse()}
       </div>
       <p className='length'>{(tasks<1 ? 'You have no tasks' : `Tasks: ${tasks.length}`)}</p>
     </div>
