@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/taskman/static/css/main.397888b9.css",
+    "main.js": "/taskman/static/js/main.8168f5a0.js",
+    "index.html": "/taskman/index.html",
+    "main.397888b9.css.map": "/taskman/static/css/main.397888b9.css.map",
+    "main.8168f5a0.js.map": "/taskman/static/js/main.8168f5a0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.397888b9.css",
+    "static/js/main.8168f5a0.js"
+  ]
+}
