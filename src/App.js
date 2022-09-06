@@ -72,8 +72,8 @@ const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
   return (
     <div className="App">
-      <div>
-        <h1><BsBook
+      <div className='app-title'>
+        <h1><BsBook  className='book-icon'
          ></BsBook>  List</h1>
 
 

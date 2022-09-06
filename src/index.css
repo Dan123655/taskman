@@ -33,6 +33,16 @@
   color: gray;
   padding: 0 0.2em;
 }
+.book-icon{
+  transform: translateY(0.3rem);
+}
+@media (max-width: 800px){
+  .app-title{
+    text-align: left;}
+  }
+
+
+
 
 .container .form-input{
   position: relative;
