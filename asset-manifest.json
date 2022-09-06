@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/taskman/static/css/main.bb53ce98.css",
-    "main.js": "/taskman/static/js/main.92c33066.js",
+    "main.css": "/taskman/static/css/main.6727f7ed.css",
+    "main.js": "/taskman/static/js/main.0197ad4c.js",
     "index.html": "/taskman/index.html",
-    "main.bb53ce98.css.map": "/taskman/static/css/main.bb53ce98.css.map",
-    "main.92c33066.js.map": "/taskman/static/js/main.92c33066.js.map"
+    "main.6727f7ed.css.map": "/taskman/static/css/main.6727f7ed.css.map",
+    "main.0197ad4c.js.map": "/taskman/static/js/main.0197ad4c.js.map"
   },
   "entrypoints": [
-    "static/css/main.bb53ce98.css",
-    "static/js/main.92c33066.js"
+    "static/css/main.6727f7ed.css",
+    "static/js/main.0197ad4c.js"
   ]
 }
