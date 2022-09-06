@@ -3,18 +3,26 @@
   user-select: none
 
 }
-
-
+body{
+  background: whitesmoke;
+}
+@media (max-width:800px){
+  body {
+    background: rgba(255, 255, 255, 0);}
+}
 
 .container{
   /* border: 3px dotted rgb(102, 98, 98); */
+  background-color: white;
   margin: auto;
   width: 90%;
   text-align: center;
 }
 @media (min-width: 800px){
   .container{
-    /* border: 3px dotted rgb(102, 98, 98); */
+    /* border: 1px solid rgb(102, 98, 98); */
+    border-radius: 15px;
+    padding:1.5rem;
     margin: auto;
     margin-top: 15%;
     width: 60%;
@@ -77,8 +85,9 @@ color: gray;}
   border-top-style: hidden;
   border-left-style: hidden;
   border-right-style: hidden;
-  border-bottom-style: groove;
+  /* border-bottom-style: groove; */
   box-shadow: none;
+  /* border-radius: 8px; */
 }
 .container .task-row{
   background-color: whitesmoke;
@@ -97,6 +106,7 @@ color: gray;}
 .completed .icon-delete{
   color: gray;
   font-size: 2rem;
+  margin-right: 0.5rem;
 }
 .container .task-row p,
 .completed p{
@@ -185,6 +195,7 @@ color: rgb(216, 243, 177);
 .hide-completed{
   color:gray;
   margin-left:2rem;
+  margin-right: 0.5rem;
   font-size: 2rem;
   transform: translateY(-0.4rem)
 }

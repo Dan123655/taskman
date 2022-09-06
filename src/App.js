@@ -7,6 +7,18 @@ function App() {
 const [tasks, setTasks] = useState([]);
 const [input, setInput] = useState('')
 
+const [popped, setPopped] = useState(false)
+
+
+
+const showOneTimeThenDont=(e)=>{
+
+setTimeout(()=>{setPopped(true); console.log('just popped or double clicked')}, 2500)}
+  
+
+
+
+
 const [hideCompleted, setHideCompleted] = useState(false);
 const toggleHideCompleted =()=>{
   setHideCompleted(current=>!current)
@@ -45,27 +57,6 @@ const toggleComplete= (id)=>{
 
 
 
-
-
-
-// //toggle hide completed
-// const hideCompleted=(tasks){}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const date = new Date()
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
@@ -79,9 +70,7 @@ const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
 
       <div className='date'>
-        <p>{days[date.getDay()]}</p>
-        <p>{date.getDate()},</p>
-        <p>{months[date.getMonth()]}</p>
+        
         {/* <p>{date.getFullYear()}</p> */}
         <p>{!hideCompleted?<BsEye className='hide-completed' onClick={toggleHideCompleted}/>:<BsEyeSlash className='hide-completed' color='gray' onClick={toggleHideCompleted}/>}</p>   
 
@@ -97,13 +86,23 @@ const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
           placeholder='Enter a task..'
           type='text'
           value={input}
-          maxlength="33"
+          maxLength="33"
           onChange={e => setInput(e.target.value)} />
         </div>
 
+        </form>
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
 
-        </form>{tasks.length==1?(<div className='popup-task-row'><p className='popup-textline'>double tap to complete
+            {(tasks.length==1)&&!popped?(<div className='popup-task-row' ><p className='popup-textline' onLoad={showOneTimeThenDont()}>double tap to complete
             </p></div>):<></>}
 
 
@@ -111,7 +110,11 @@ const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
 
 
-        {/* {tasks.map(task=>{if(task.completed)return ( */}
+
+
+
+
+
 
 
 
@@ -121,11 +124,11 @@ const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
           if(hideCompleted){
                       if(!task.completed)return (
 
-                        <div className={`${task.completed? 'completed' : 'task-row'}`} key={task.id} onDoubleClick={() => toggleComplete(task.id)}><p className='textline'>{task.text}</p>
+                        <div className={`${task.completed? 'completed' : 'task-row'}`} key={task.id} onDoubleClick={() => {toggleComplete(task.id)}}><p className='textline'>{task.text}</p>
                               <AiOutlineCloseCircle className='icon-delete' onClick={()=>deleteTask(task.id)}/>
                         </div>)
       
-          }else{return (<div className={`${task.completed? 'completed' : 'task-row'}`} key={task.id} onDoubleClick={() => toggleComplete(task.id)}><p className='textline'>{task.text}</p>
+          }else{return (<div className={`${task.completed? 'completed' : 'task-row'}`} key={task.id} onDoubleClick={(e) =>{showOneTimeThenDont(e); toggleComplete(task.id)}}><p className='textline'>{task.text}</p>
                               <AiOutlineCloseCircle className='icon-delete' onClick={()=>deleteTask(task.id)}/>
                 </div>
             )
@@ -134,22 +137,12 @@ const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
       
       }
         
-        
-
-
-
-
-
-
-        
-        
-        
-        
+      
         ).reverse()}
 
 
       </div>
-      <p className='length'>{(tasks<1 ? 'You have no tasks' : `Tasks: ${tasks.length}`)}</p>
+      <p className='length'>{(tasks<1 ? 'You have no tasks for ' : `You have: ${tasks.length} tasks for `)} {days[date.getDay()]} {date.getDate()}, {months[date.getMonth()]}</p>
     </div>
   );
 }
