@@ -206,3 +206,10 @@ input, input:before, input:after{
   -ms-user-select: initial;
   user-select: initial;
 }
+input {
+  -webkit-user-select:text;
+  -moz-user-select: text;
+  -ms-user-select:text;
+  user-select: text;
+
+}
