@@ -1,6 +1,6 @@
 *{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Helvetica', Arial, sans-serif;
-  user-select: none
+  /* user-select: none */
 
 }
 body{
@@ -199,7 +199,7 @@ color: rgb(216, 243, 177);
   font-size: 2rem;
   transform: translateY(-0.4rem)
 }
-input, input:before, input:after{
+/* input, input:before, input:after{
   -webkit-user-select: initial;
   -khtml-user-select: initial;
   -moz-user-select: initial;
@@ -212,4 +212,4 @@ input {
   -ms-user-select:text;
   user-select: text;
 
-}
+} */

@@ -50,7 +50,7 @@ const deleteTask=(id)=>{
 
 
 //toggle completed task
-const toggleComplete= (id)=>{
+const toggleComplete= (id,e)=>{showOneTimeThenDont(e); 
   setTasks(tasks.map(task=>task.id===id?{...task, completed: !task.completed} : task))
 }
 
@@ -80,7 +80,7 @@ const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
 
         <form onSubmit={handleSumbit}>
-          <foo className='form-input'>
+          <div className='form-input'>
         <HiOutlinePlus className='icon-add' onClick={handleSumbit}/>
           <input 
           placeholder='Enter a task..'
@@ -88,7 +88,7 @@ const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
           value={input}
           maxLength="33"
           onChange={e => setInput(e.target.value)} />
-        </foo>
+        </div>
 
         </form>
         
@@ -128,7 +128,7 @@ const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
                               <AiOutlineCloseCircle className='icon-delete' onClick={()=>deleteTask(task.id)}/>
                         </div>)
       
-          }else{return (<div className={`${task.completed? 'completed' : 'task-row'}`} key={task.id} onDoubleClick={(e) =>{showOneTimeThenDont(e); toggleComplete(task.id)}}><p className='textline'>{task.text}</p>
+          }else{return (<div className={`${task.completed? 'completed' : 'task-row'}`} key={task.id} onDoubleClick={(e) =>{toggleComplete(task.id)}}><p className='textline'>{task.text}</p>
                               <AiOutlineCloseCircle className='icon-delete' onClick={()=>deleteTask(task.id)}/>
                 </div>
             )
