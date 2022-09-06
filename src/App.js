@@ -1,14 +1,16 @@
 import React from 'react'
-import {useState} from 'react'
-import {BsBook} from 'react-icons/bs'
+import {useState, useEffect} from 'react'
+import {BsBook,BsEye,BsEyeSlash} from 'react-icons/bs'
 import {AiOutlinePlusCircle, AiOutlineCloseCircle} from 'react-icons/ai'
 function App() {
 const [tasks, setTasks] = useState([]);
 const [input, setInput] = useState('')
 
-
-
-
+const [hideCompleted, setHideCompleted] = useState(false);
+const toggleHideCompleted =()=>{
+  setHideCompleted(current=>!current)
+  console.log("switched hideCompleted to "+ hideCompleted)
+}
 
 
 const handleSumbit=(e)=>{
@@ -40,17 +42,39 @@ const toggleComplete= (id)=>{
 }
 
 
+
+
+
+
+
+// //toggle hide completed
+// const hideCompleted=(tasks){}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const date = new Date()
-console.log(date)
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
 
-
   return (
     <div className="App">
-      <div className>
-        <h1><BsBook></BsBook>  List</h1>
+      <div>
+        <h1><BsBook
+         ></BsBook>  List</h1>
 
 
       <div className='date'>
@@ -58,8 +82,10 @@ const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
         <p>{date.getDate()},</p>
         <p>{months[date.getMonth()]}</p>
         <p>{date.getFullYear()}</p>
-        </div>
+        <p>{!hideCompleted?<BsEye className='hide-completed' onClick={toggleHideCompleted}/>:<BsEyeSlash className='hide-completed' color='gray' onClick={toggleHideCompleted}/>}</p>   
 
+        </div>
+        
 
 
 
@@ -73,17 +99,53 @@ const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
           onChange={e => setInput(e.target.value)} />
         </div>
 
-        </form>{tasks.length==1?(<div className='popup-task-row'><p className='popup-textline'>double-tap to complete
+
+
+        </form>{tasks.length==1?(<div className='popup-task-row'><p className='popup-textline'>double tap to complete
             </p></div>):<></>}
-        {tasks.map(task=>(
-          <div className={`${task.completed? 'completed' : 'task-row'}`} key={task.id} onDoubleClick={() => toggleComplete(task.id)}>
+
+
+
+
+
+
+        {/* {tasks.map(task=>{if(task.completed)return ( */}
+
+
+
+
+        {tasks.map(task=>{
           
-          <p className='textline'>{task.text}
-            </p>
-            
-            <AiOutlineCloseCircle className='icon-delete' onClick={()=>deleteTask(task.id)}/>
-            </div>
-        )).reverse()}
+          if(hideCompleted){
+                      if(!task.completed)return (
+
+                        <div className={`${task.completed? 'completed' : 'task-row'}`} key={task.id} onDoubleClick={() => toggleComplete(task.id)}><p className='textline'>{task.text}</p>
+                              <AiOutlineCloseCircle className='icon-delete' onClick={()=>deleteTask(task.id)}/>
+                        </div>)
+      
+          }else{return (<div className={`${task.completed? 'completed' : 'task-row'}`} key={task.id} onDoubleClick={() => toggleComplete(task.id)}><p className='textline'>{task.text}</p>
+                              <AiOutlineCloseCircle className='icon-delete' onClick={()=>deleteTask(task.id)}/>
+                </div>
+            )
+
+          }
+      
+      }
+        
+        
+
+
+
+
+
+
+        
+        
+        
+        
+        ).reverse()}
+
+
       </div>
       <p className='length'>{(tasks<1 ? 'You have no tasks' : `Tasks: ${tasks.length}`)}</p>
     </div>
