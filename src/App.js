@@ -96,6 +96,7 @@ const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
           placeholder='Enter a task..'
           type='text'
           value={input}
+          maxlength="33"
           onChange={e => setInput(e.target.value)} />
         </div>
 
