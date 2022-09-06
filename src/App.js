@@ -80,7 +80,7 @@ const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
 
         <form onSubmit={handleSumbit}>
-          <div className='form-input'>
+          <foo className='form-input'>
         <HiOutlinePlus className='icon-add' onClick={handleSumbit}/>
           <input 
           placeholder='Enter a task..'
@@ -88,7 +88,7 @@ const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
           value={input}
           maxLength="33"
           onChange={e => setInput(e.target.value)} />
-        </div>
+        </foo>
 
         </form>
         
@@ -124,7 +124,7 @@ const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
           if(hideCompleted){
                       if(!task.completed)return (
 
-                        <div className={`${task.completed? 'completed' : 'task-row'}`} key={task.id} onDoubleClick={() => {toggleComplete(task.id)}}><p className='textline'>{task.text}</p>
+                        <div className={`${task.completed? 'completed' : 'task-row'}`} key={task.id} onDoubleClick={(e) => {toggleComplete(task.id)}}><p className='textline'>{task.text}</p>
                               <AiOutlineCloseCircle className='icon-delete' onClick={()=>deleteTask(task.id)}/>
                         </div>)
       
