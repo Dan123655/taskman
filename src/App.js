@@ -1,7 +1,8 @@
 import React from 'react'
 import {useState} from 'react'
 import {BsBook,BsEye,BsEyeSlash} from 'react-icons/bs'
-import {AiOutlinePlusCircle, AiOutlineCloseCircle} from 'react-icons/ai'
+import {AiOutlineCloseCircle} from 'react-icons/ai'
+import {HiOutlinePlus} from 'react-icons/hi'
 function App() {
 const [tasks, setTasks] = useState([]);
 const [input, setInput] = useState('')
@@ -91,7 +92,7 @@ const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
         <form onSubmit={handleSumbit}>
           <div className='form-input'>
-        <AiOutlinePlusCircle className='icon-add' onClick={handleSumbit}/>
+        <HiOutlinePlus className='icon-add' onClick={handleSumbit}/>
           <input 
           placeholder='Enter a task..'
           type='text'
