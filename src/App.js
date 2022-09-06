@@ -1,5 +1,5 @@
 import React from 'react'
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import {BsBook,BsEye,BsEyeSlash} from 'react-icons/bs'
 import {AiOutlinePlusCircle, AiOutlineCloseCircle} from 'react-icons/ai'
 function App() {
@@ -78,10 +78,10 @@ const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
 
       <div className='date'>
-        <p>{days[date.getDay()]},</p>
+        <p>{days[date.getDay()]}</p>
         <p>{date.getDate()},</p>
         <p>{months[date.getMonth()]}</p>
-        <p>{date.getFullYear()}</p>
+        {/* <p>{date.getFullYear()}</p> */}
         <p>{!hideCompleted?<BsEye className='hide-completed' onClick={toggleHideCompleted}/>:<BsEyeSlash className='hide-completed' color='gray' onClick={toggleHideCompleted}/>}</p>   
 
         </div>

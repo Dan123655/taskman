@@ -16,19 +16,21 @@
   .container{
     /* border: 3px dotted rgb(102, 98, 98); */
     margin: auto;
+    margin-top: 15%;
     width: 60%;
     text-align: center;
   }
 }
 
 .container .date {
-  margin: 2rem 0 1rem 0;
+  margin: 0rem 0 0rem 0;
+  height: 2.5rem;
   display: flex;
   justify-content: right;
 
 }
 .container .date p{
-
+  color: gray;
   padding: 0 0.2em;
 }
 
@@ -171,8 +173,8 @@ color: rgb(216, 243, 177);
 
 }
 .hide-completed{
-  color:rgb(216, 243, 177);
-  margin-left:5rem;
+  color:gray;
+  margin-left:2rem;
   font-size: 2rem;
   transform: translateY(-0.4rem)
 }
