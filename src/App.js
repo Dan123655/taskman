@@ -6,17 +6,10 @@ import {HiOutlinePlus} from 'react-icons/hi'
 function App() {
 
 
-
-
 const [tasks, setTasks] = useState(()=>{
   const localData = localStorage.getItem('tasks');
   return localData ? JSON.parse(localData) : [];
 });
-
-
-
-
-
 
 
 const [input, setInput] = useState('')
@@ -43,14 +36,9 @@ const HandleSumbit=(e)=>{
   setInput('');
 }
 
-
-
-
-
 //delete task
 const deleteTask=(id)=>{
   let filteredTasks=[...tasks].filter((tasks)=>tasks.id !==id);
-  // useEffect((tasks) =>{localStorage.setItem('tasks', JSON.stringify(tasks))}, [tasks])
   setTasks(filteredTasks)
   console.log('deleted ok')
 }
@@ -65,20 +53,6 @@ const toggleComplete= (id,e)=>{showOneTimeThenDont(e);
 const date = new Date()
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   return (
