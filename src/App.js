@@ -12,7 +12,7 @@ const [tasks, setTasks] = useState(()=>{
 });
 
 
-const [input, setInput] = useState('')
+const [input, setInput] = useState('');
 const [popped, setPopped] = useState(false)
 const showOneTimeThenDont=(e)=>{
   setTimeout(()=>{setPopped(true); console.log('just popped or double clicked')}, 2500)}
