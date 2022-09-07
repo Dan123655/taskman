@@ -59,7 +59,7 @@ const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     <div className="App">
       <div className='app-title'>
         <h1><BsBook  className='book-icon'
-         ></BsBook>  List</h1>
+         ></BsBook>  Taskman</h1>
 
 
       <div className='date'>
