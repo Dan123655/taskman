@@ -3,14 +3,17 @@ import { useState, useEffect } from "react";
 import { BsBook, BsEye, BsEyeSlash } from "react-icons/bs";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { HiOutlinePlus } from "react-icons/hi";
+import { SiEgghead } from "react-icons/si";
 function App() {
   const [tasks, setTasks] = useState(() => {
     const localData = localStorage.getItem("tasks");
+    console.log(localData);
     return localData ? JSON.parse(localData) : [];
   });
 
   const [input, setInput] = useState("");
   const [popped, setPopped] = useState(false);
+  const [egg, setEgg] = useState(false);
   const showOneTimeThenDont = (e) => {
     setTimeout(() => {
       setPopped(true);
@@ -18,6 +21,7 @@ function App() {
     }, 2000);
   };
   const [hideCompleted, setHideCompleted] = useState(false);
+
   const toggleHideCompleted = () => {
     setHideCompleted((current) => !current);
     console.log("switched hideCompleted to " + hideCompleted);
@@ -36,6 +40,30 @@ function App() {
     };
     setTasks([...tasks, addTask]);
     setInput("");
+    console.log(tasks);
+  };
+
+  //Alcron audit
+
+  const handleAlcron = (e) => {
+    var alcronTaskList = [
+      "cards",
+      "credit limit",
+      "cash stays",
+      "closures",
+      "corrections",
+      "adjusted & cancelled payments",
+      "audit",
+    ];
+    const addThis = alcronTaskList.map((alcronItem) => ({
+      id: Math.floor(Math.random() * 10000),
+      text: alcronItem,
+      alcron: true,
+      completed: false,
+    }));
+    console.log(addThis);
+    setTasks([...tasks, ...addThis.reverse()]);
+    setEgg(true);
   };
 
   //delete task
@@ -44,6 +72,7 @@ function App() {
     setTasks(filteredTasks);
     console.log("deleted ok");
   };
+
   //toggle completed task
   const toggleComplete = (id, e) => {
     showOneTimeThenDont(e);
@@ -74,9 +103,17 @@ function App() {
   return (
     <div className="App">
       <div className="app-title">
-        <h1>
-          <BsBook className="book-icon"></BsBook> Taskman
-        </h1>
+        {!egg ? (
+          <h1>
+            <BsBook className="book-icon" onDoubleClick={handleAlcron}></BsBook>{" "}
+            Taskman
+          </h1>
+        ) : (
+          <h1>
+            <SiEgghead className="book-icon"></SiEgghead> You've discovered the
+            Easter Egg. Now do this for you boss:
+          </h1>
+        )}
 
         <div className="date">
           <p>

@@ -199,6 +199,13 @@ body {
   font-size: 2rem;
   transform: translateY(-0.4rem);
 }
+.hotel-ri {
+  color: rgb(226, 226, 226);
+  margin-left: 2rem;
+  margin-right: 0;
+  font-size: 2rem;
+  transform: translateY(-0.4rem);
+}
 
 input {
   -webkit-user-select: text;
