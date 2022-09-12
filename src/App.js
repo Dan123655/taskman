@@ -10,7 +10,9 @@ function App() {
     console.log(localData);
     return localData ? JSON.parse(localData) : [];
   });
-
+  window.onstorage = () => {
+    setTasks(JSON.parse(localStorage.getItem("tasks")));
+  };
   const [input, setInput] = useState("");
   const [popped, setPopped] = useState(false);
   const [egg, setEgg] = useState(false);
@@ -105,7 +107,10 @@ function App() {
       <div className="app-title">
         {!egg ? (
           <h1>
-            <BsBook className="book-icon" onDoubleClick={handleAlcron}></BsBook>{" "}
+            <BsBook
+              className="book-icon"
+              onDoubleClickCapture={handleAlcron}
+            ></BsBook>{" "}
             Taskman
           </h1>
         ) : (
