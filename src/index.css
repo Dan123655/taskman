@@ -51,6 +51,7 @@ body {
 }
 
 .container .form-input {
+  margin-top: 0.5rem;
   position: relative;
   background: transparent;
   width: 100%;
@@ -194,7 +195,7 @@ body {
 }
 .hide-completed {
   color: gray;
-  margin-left: 2rem;
+  margin-left: 1rem;
   margin-right: 0.5rem;
   font-size: 2rem;
   transform: translateY(-0.4rem);
@@ -224,9 +225,29 @@ input:after {
 }
 .homework{ 
   padding: 0.3rem;
-  color: gray;
+  border-radius: 5px;
+  color: rgb(230, 230, 230);
   border: 1.3px solid black;
   margin-left: 2rem;
-  margin-right: 0.5rem;
+  margin-right: 0.2rem;
+  height: 1.35rem;
+  background: black;
+  font-weight: bold;
+ 
   font-size: 1rem;
-  transform: translateY(0.4rem);}
+  transform: translateY(0.5rem);}
+  .homeworkClicked{ 
+    padding: 0.3rem;
+    border-radius: 5px;
+    color: rgb(17, 17, 17);
+    /* border: 1.3px solid black; */
+    width: 138px;
+    height: 33px;
+    margin-left: 2rem;
+    margin-right: 0.2rem;
+    height: 1.35rem;
+    background: rgb(216, 243, 177);
+    text-align: center;
+    font-weight: bolder;
+    font-size: 1rem;
+    transform: translateY(0.5rem);}

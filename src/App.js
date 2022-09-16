@@ -75,6 +75,7 @@ function App() {
 
 
   const handleHomework = (e) => {
+    if(!heClicked){
     var homeworkList = [
       "обновить только nextjs",
       "завести еслинт в другом проекте",
@@ -92,7 +93,7 @@ function App() {
     console.log(addThis);
     setTasks([...tasks, ...addThis.reverse()]);
     setHeClicked((current) => !current);
-    setHomework(true);
+    setHomework(true);}
   }
 
 
@@ -154,7 +155,8 @@ function App() {
         )}
         
         <div className="date">
-        <div className="homework" onClick={handleHomework}>{!heClicked?"Is homework done?":"IT IS!"}</div>
+        {!heClicked?(<div className="homework" onClick={handleHomework}>Is homework done?</div>):
+        (<div className="homeworkClicked" onClick={handleHomework}>yep</div>)}
           <p>
           
             {!hideCompleted ? (
