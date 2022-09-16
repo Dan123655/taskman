@@ -16,6 +16,8 @@ function App() {
   const [input, setInput] = useState("");
   const [popped, setPopped] = useState(false);
   const [egg, setEgg] = useState(false);
+  const [homework, setHomework] = useState(false)
+  const[heClicked, setHeClicked] = useState(false)
   const showOneTimeThenDont = (e) => {
     setTimeout(() => {
       setPopped(true);
@@ -68,6 +70,38 @@ function App() {
     setEgg(true);
   };
 
+
+
+
+
+  const handleHomework = (e) => {
+    if(!heClicked){
+    var homeworkList = [
+      "обновить только nextjs",
+      "завести еслинт в другом проекте",
+      "добавить gh act для еслинт",
+      "начать пользоваться pull requests",
+      "css grids for weather app",
+      "добавить prettier к еслинту",
+    ];
+    const addThis = homeworkList.map((listItem) => ({
+      id: Math.floor(Math.random() * 10000),
+      text: listItem,
+      done: true,
+      completed: true,
+    }));
+    console.log(addThis);
+    setTasks([...tasks, ...addThis.reverse()]);
+    setHeClicked((current) => !current);
+    setHomework(true);}
+  }
+
+
+
+
+
+
+
   //delete task
   const deleteTask = (id) => {
     let filteredTasks = [...tasks].filter((tasks) => tasks.id !== id);
@@ -119,9 +153,12 @@ function App() {
             Easter Egg. Now do this for you boss:
           </h1>
         )}
-
+        
         <div className="date">
+        {!heClicked?(<div className="homework" onClick={handleHomework}>Is homework done?</div>):
+        (<div className="homeworkClicked" onClick={handleHomework}>yep</div>)}
           <p>
+          
             {!hideCompleted ? (
               <BsEye className="hide-completed" onClick={toggleHideCompleted} />
             ) : (
