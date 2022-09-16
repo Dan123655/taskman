@@ -5,15 +5,14 @@
       "plugin:react/recommended",
       "plugin:jsx-a11y/recommended"
     ],
-    "plugins": ["react", "import", "jsx-a11y", "prettier"],
+    "plugins": ["react", "import", "prettier"],
     "rules": {
       "react/prop-types": 0,
       "no-unused-vars":"warn",
       "react/no-unescaped-entities": "off",
-      "react/no-unknown-property": "off",
-      "jsx-a11y/no-noninteractive-element-interactions":"off",
+      "react/no-unknown-property": "off"
 
-      "indent": ["error", 2]
+
 
     },
 
